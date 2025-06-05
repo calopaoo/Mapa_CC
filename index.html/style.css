@@ -1,0 +1,195 @@
+/* Importar una fuente de Google Fonts (ejemplo: Roboto) - Descomenta si usas el link en HTML */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
+
+body {
+    font-family: 'Arial', sans-serif; /* Puedes cambiar a 'Roboto', sans-serif; si importas la fuente */
+    margin: 0; /* Eliminar margen del body para que el contenedor principal controle el espacio */
+    background-color: #f4f4f4; /* Color de fondo de fallback */
+    color: #333; /* Color de texto general */
+    line-height: 1.6; /* Espaciado entre líneas para mejor lectura */
+
+    /* NUEVO: ESTILOS PARA LA IMAGEN DE FONDO */
+    background-image: url('WALLPAPER3.jpg'); /* REEMPLAZA ESTO CON LA RUTA A TU IMAGEN */
+    background-size: cover; /* La imagen cubrirá todo el fondo */
+    background-position: center center; /* Centra la imagen */
+    background-attachment: fixed; /* La imagen de fondo se mantiene fija mientras el contenido se desplaza */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+h1 {
+    color: #2c3e50; /* Un color oscuro y elegante para el título */
+    text-align: center;
+    margin: 20px 0 30px; /* Margen superior e inferior, 0 a los lados */
+    border-bottom: 2px solid #ddd; /* Línea separadora */
+    padding-bottom: 10px; /* Espacio entre el texto y la línea */
+    font-size: 2.5em; /* Tamaño de fuente más grande para el título */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para el título para mejorar legibilidad */
+    padding-top: 10px; /* Pequeño padding para el fondo del título */
+}
+
+/* Contenedor principal que usa CSS Grid */
+.main-container {
+    display: grid;
+    /* RESTAURAMOS LA CUADRICULA DE DOS COLUMNAS */
+    grid-template-columns: 1fr 2fr; /* Mapa 1/3, Lista 2/3 */
+    gap: 30px; /* Espacio entre las columnas/elementos de la cuadrícula */
+    max-width: 1400px; /* Aumentado para que abarque más espacio de la página */
+    margin: 0 auto 40px auto; /* Centrar el contenedor y añadir margen inferior */
+    padding: 20px; /* Padding interno para que el contenido no toque los bordes */
+    background-color: rgba(255, 255, 255, 0.85); /* Fondo semitransparente para el contenido principal */
+    border-radius: 8px; /* Bordes redondeados para el contenedor principal */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+#map {
+    height: 500px; /* Altura del mapa. Grande para que ocupe más */
+    width: 100%; /* Ocupa todo el ancho de su columna */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cultural-centers-list {
+    background-color: #fff; /* Fondo blanco para la lista */
+    padding: 25px; /* Más padding para que el contenido respire */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Mantener altura máxima con scroll para que no se extienda demasiado en pantallas grandes */
+    max-height: 500px; /* Ajusta la altura máxima para que coincida con el mapa */
+    overflow-y: auto; /* Permite desplazamiento si la lista es muy larga */
+}
+
+.cultural-centers-list h2 {
+    color: #3498db; /* Un color más llamativo para el subtítulo */
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px; /* Más espacio debajo del subtítulo */
+    font-size: 1.6em; /* Tamaño de fuente para el subtítulo */
+}
+
+.cultural-centers-list ul {
+    list-style: none; /* Eliminar viñetas de la lista */
+    padding: 0; /* Eliminar padding predeterminado de la lista */
+}
+
+.cultural-centers-list li {
+    padding: 12px 0; /* Más padding vertical para los elementos de la lista */
+    border-bottom: 1px dotted #e0e0e0; /* Línea punteada más suave para separar los elementos */
+    transition: background-color 0.3s ease; /* Transición suave para el efecto hover */
+}
+
+.cultural-centers-list li:last-child {
+    border-bottom: none; /* Quitar la línea del último elemento para una apariencia limpia */
+}
+
+.cultural-centers-list li strong {
+    color: #e67e22; /* Un color para resaltar el nombre del centro */
+    display: block; /* Hace que el nombre del centro ocupe su propia línea */
+    margin-bottom: 5px; /* Espacio entre el nombre y la descripción */
+    font-size: 1.1em; /* Un poco más grande para el nombre del centro */
+}
+
+.cultural-centers-list li:hover {
+    background-color: #f9f9f9; /* Fondo ligero al pasar el ratón */
+    cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+}
+
+.search-container {
+    margin-bottom: 20px; 
+}
+
+#searchInput {
+    width: calc(100% - 20px); 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Incluye padding y border en el width */
+    transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: #3498db; /* Cambia el color del borde al enfocar */
+    outline: none; /* Elimina el contorno azul por defecto del navegador */
+}
+
+/* Ajustes de media query para el buscador si es necesario */
+@media (max-width: 768px) {
+    #searchInput {
+        width: 100%; /* Ocupa el 100% en móviles */
+    }
+}
+/* Para pantallas medianas (tabletas y algunas laptops pequeñas) */
+@media (max-width: 992px) {
+    .main-container {
+        grid-template-columns: 1fr; /* Volvemos a una sola columna en pantallas medianas */
+        gap: 25px;
+        padding: 15px;
+        max-width: 90%; /* Ajustar el ancho máximo */
+    }
+
+    #map {
+        height: 400px; /* Ajustar altura del mapa */
+    }
+
+    .cultural-centers-list {
+        max-height: none; /* Eliminar altura máxima cuando están apilados */
+    }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em; /* Reducir tamaño del título principal */
+        margin-bottom: 20px;
+    }
+
+    .main-container {
+        gap: 20px;
+        padding: 10px;
+        max-width: 95%; /* Ajustar el ancho máximo */
+    }
+
+    #map {
+        height: 300px; /* Reducir altura del mapa para móviles */
+    }
+
+    .cultural-centers-list {
+        padding: 20px;
+    }
+
+    .cultural-centers-list h2 {
+        font-size: 1.4em; /* Reducir tamaño del subtítulo */
+        margin-bottom: 15px;
+    }
+
+    .cultural-centers-list li {
+        padding: 10px 0;
+    }
+    .cultural-centers-list li strong {
+        font-size: 1em;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .main-container {
+        padding: 5px;
+        gap: 15px;
+    }
+    #map {
+        height: 200px;
+    }
+    .cultural-centers-list {
+        padding: 15px;
+    }
+    .cultural-centers-list h2 {
+        font-size: 1.2em;
+    }
+}
